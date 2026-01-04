@@ -297,7 +297,7 @@ Halting problem is semi-solved here.
 Your browser does not support the canvas tag.
 </canvas>
 
-> General termination oracles (in CS) while actually exist under proper formulations, are not applicable here. We focus on interpretability of a contract, since contracts are always budget bound. Contracts aim at commitment of existing resource (at risk), needed in order to aquire new resources (eg to run a Turing machine solver longer).
+> General termination oracles (in modern CS) while actually physically exist under proper formulations, are still not applicable here. We focus on human interpretability of a contract, since contracts are always budget bound. Contracts aim at commitment of existing resource (at risk), needed in order to aquire new resources (eg to run a Turing machine solver longer). Eg, even formulating problem (theorem) for an oracle takes human effort. Natural resource limitations overshadow universality of algorithms available nowadays.
 
 ### 👭 Multi-party
 
