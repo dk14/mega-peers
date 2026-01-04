@@ -290,12 +290,14 @@ Discreet🌿 allows for recursion. `outcome` and `pay` can be in recursive calls
 
 Every contract has a limit on maximum collateral (`enumerateWithBound(maxBudgetParty, maxBudgetCounterParty)`), thus payout recursion is bounded. 
 
-Halting problem is semi-solved.
+Halting problem is semi-solved here.
 
 
 <canvas id="canvas">
 Your browser does not support the canvas tag.
 </canvas>
+
+> General termination oracles (in CS) while actually exist under proper formulations, are not applicable here. We focus on interpretability of a contract, since contracts are always budget bound. Contracts aim at commitment of existing resource (at risk), needed in order to aquire new resources (eg to run a Turing machine solver longer).
 
 ### 👭 Multi-party
 
