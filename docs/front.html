@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ==================== Core meta ==================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Magic Peers – Dark, Fast, Energy‑aware P2P Network</title>
+  <meta name="description"
+        content="Magic Peers is a dark‑themed, peer‑to‑peer network that combines low‑latency routing, built‑in observation tools and PoW‑based energy accounting. Join the future of decentralized communication.">
+
+  <!-- ==================== Favicon / Icon ==================== -->
+  <!-- Replace the data‑URI with your own SVG if you prefer -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%236c5ce7'/%3E%3Ctext x='50' y='58' font-size='48' text-anchor='middle' fill='%23fff' font-family='sans-serif'%3EM%3C/text%3E%3C/svg%3E"
+        type="image/svg+xml">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%236c5ce7'/%3E%3Ctext x='50' y='58' font-size='48' text-anchor='middle' fill='%23fff' font-family='sans-serif'%3EM%3C/text%3E%3C/svg%3E">
+
+  <!-- ==================== Open Graph / Social ==================== -->
+  <meta property="og:title" content="Magic Peers – Decentralised P2P Network">
+  <meta property="og:description"
+        content="A dark, ultra‑fast, observation‑ready P2P network with proof‑of‑work energy accounting.">
+  <meta property="og:image"
+        content="https://dk14.github.io/mega-peers/docs/assets/cover.png">
+  <meta property="og:url" content="https://YOUR-DOMAIN-or-GITHUB-PAGES-URL/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- ==================== In‑lined CSS ==================== -->
+  <style>
+    :root{
+      --color-bg:#0d0d0d;
+      --color-fg:#e1e1e1;
+      --color-primary:#6c5ce7;
+      --color-accent:#00b894;
+      --color-muted:#555;
+      --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:var(--font-sans);
+      background:var(--color-bg);
+      color:var(--color-fg);
+      overflow-x:hidden;
+    }
+    .hero{
+      position:relative;
+      height:100vh;
+      min-height:560px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      overflow:hidden;
+    }
+    .hero__content{z-index:2}
+    .hero__logo{
+      width:96px;
+      filter:drop-shadow(0 0 8px var(--color-primary));
+    }
+    .hero__title{
+      font-size:clamp(2.5rem,8vw,4rem);
+      margin:.5rem 0;
+      color:var(--color-primary);
+    }
+    .hero__subtitle{
+      font-size:1.2rem;
+      margin-bottom:1.5rem;
+      color:var(--color-muted);
+    }
+    .hero__cta{
+      display:inline-block;
+      padding:.8rem 1.8rem;
+      background:var(--color-primary);
+      border-radius:6px;
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      transition:background .2s,transform .2s;
+    }
+    .hero__cta:hover{
+      background:#8e7be9;
+      transform:translateY(-2px);
+    }
+    #peer-canvas{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      z-index:1;
+    }
+    .features{
+      display:grid;
+      gap:2rem;
+      max-width:1100px;
+      margin:4rem auto;
+      padding:0 1rem;
+    }
+    .feature{
+      background:rgba(255,255,255,.04);
+      border-radius:8px;
+      padding:1.5rem;
+      transition:background .2s;
+    }
+    .feature h2{
+      margin-bottom:.5rem;
+      color:var(--color-accent);
+    }
+    .feature a{color:var(--color-primary);text-decoration:underline}
+    .feature:hover{background:rgba(255,255,255,.07)}
+    .footer{
+      text-align:center;
+      padding:2rem 0;
+      font-size:.9rem;
+      color:var(--color-muted);
+    }
+    .footer a{color:var(--color-primary)}
+    @media (min-width:640px){.features{grid-template-columns:repeat(3,1fr)}}
+    @media (prefers-color-scheme:light){
+      :root{
+        --color-bg:#f7f7f7;
+        --color-fg:#212121;
+        --color-muted:#555;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ==================== Hero ==================== -->
+  <header class="hero">
+    <div class="hero__content">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%236c5ce7'/%3E%3Ctext x='50' y='58' font-size='48' text-anchor='middle' fill='%23fff' font-family='sans-serif'%3EM%3C/text%3E%3C/svg%3E"
+           alt="Magic Peers logo" class="hero__logo">
+      <h1 class="hero__title">Magic Peers</h1>
+      <p class="hero__subtitle">
+        Decentralised, Secure, Energy‑aware <abbr title="Peer‑to‑Peer">P2P</abbr> Network
+      </p>
+      <a href="https://dk14.github.io/mega-peers/docs/#/" class="hero__cta">Explore the Docs →</a>
+    </div>
+    <canvas id="peer-canvas"></canvas>
+  </header>
+
+  <!-- ==================== Features ==================== -->
+  <section class="features">
+    <div class="feature">
+      <h2>⚡ Ultra‑fast Routing</h2>
+      <p>Dynamic mesh topology that finds the shortest path in milliseconds. <a href="https://dk14.github.io/mega-peers/docs/#/routing">Read more »</a></p>
+    </div>
+    <div class="feature">
+      <h2>👁️ Built‑in Observation</h2>
+      <p>Real‑time telemetry of peers, traffic heat‑maps and health checks. <a href="https://dk14.github.io/mega-peers/docs/#/observability">Read more »</a></p>
+    </div>
+    <div class="feature">
+      <h2>🔋 PoW Energy Accounting</h2>
+      <p>Each message carries a tiny proof‑of‑work stamp that lets nodes measure and limit their energy impact. <a href="https://dk14.github.io/mega-peers/docs/#/pow">Read more »</a></p>
+    </div>
+  </section>
+
+  <!-- ==================== Footer ==================== -->
+  <footer class="footer">
+    <p>© <script>document.write(new Date().getFullYear())</script> Magic Peers • <a href="https://github.com/dk14/mega-peers">GitHub</a></p>
+  </footer>
+
+  <!-- ==================== In‑lined JS (animation) ==================== -->
+  <script>
+    const canvas = document.getElementById('peer-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height, nodes = [];
+
+    const NODE_COUNT = Math.max(15, Math.floor(window.innerWidth / 80));
+    const NODE_RADIUS = 4;
+    const PULSE_MAX_AGE = 80;      // frames
+    const PULSE_SPEED = 1.6;
+    const ENERGY_ARC_SPEED = 0.015; // radians / frame
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      initNodes();
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    function initNodes() {
+      nodes = [];
+      for (let i = 0; i < NODE_COUNT; i++) {
+        nodes.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          energyPhase: Math.random() * Math.PI * 2,
+          pulses: []
+        });
+      }
+
+      // compute k‑nearest neighbours (k = 4 or less)
+      const k = Math.min(4, NODE_COUNT - 1);
+      nodes.forEach(node => {
+        const dists = nodes
+          .filter(n => n !== node)
+          .map(n => ({node:n, d:dist(node,n)}))
+          .sort((a,b)=>a.d-b.d)
+          .slice(0,k)
+          .map(o=>o.node);
+        node.neighbours = dists;
+      });
+    }
+
+    function dist(a,b){ const dx=a.x-b.x, dy=a.y-b.y; return Math.sqrt(dx*dx+dy*dy); }
+
+    function update() {
+      // emit a new pulse from every node roughly every 2 seconds
+      if (performance.now() % 1200 < 16) {
+        nodes.forEach(node=>{
+          const target = node.neighbours[Math.floor(Math.random()*node.neighbours.length)];
+          node.pulses.push({
+            x: node.x,
+            y: node.y,
+            dx: (target.x-node.x)/PULSE_MAX_AGE,
+            dy: (target.y-node.y)/PULSE_MAX_AGE,
+            age:0,
+            maxAge:PULSE_MAX_AGE
+          });
+        });
+      }
+
+      nodes.forEach(node=>{
+        node.pulses = node.pulses.filter(p=>{
+          p.x += p.dx; p.y += p.dy; p.age++;
+          return p.age < p.maxAge;
+        });
+        node.energyPhase += ENERGY_ARC_SPEED;
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0,0,width,height);
+
+      // faint links
+      ctx.strokeStyle = 'rgba(255,255,255,.05)';
+      ctx.lineWidth = 1;
+      nodes.forEach(node=>{
+        node.neighbours.forEach(n=>{
+          ctx.beginPath();
+          ctx.moveTo(node.x,node.y);
+          ctx.lineTo(n.x,n.y);
+          ctx.stroke();
+        });
+      });
+
+      // pulses
+      ctx.fillStyle = 'rgba(108,92,231,.7)';
+      nodes.forEach(node=>{
+        node.pulses.forEach(p=>{
+          const r = NODE_RADIUS * (1 - p.age/p.maxAge);
+          ctx.beginPath();
+          ctx.arc(p.x,p.y,r,0,Math.PI*2);
+          ctx.fill();
+        });
+      });
+
+      // nodes + PoW energy arc
+      nodes.forEach(node=>{
+        ctx.fillStyle = '#fff';
+        ctx.beginPath();
+        ctx.arc(node.x,node.y,NODE_RADIUS,0,Math.PI*2);
+        ctx.fill();
+
+        const start = node.energyPhase % (Math.PI*2);
+        const end   = start + Math.PI/2;
+        ctx.strokeStyle = 'rgba(0,184,148,.8)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(node.x,node.y,NODE_RADIUS+4,start,end);
+        ctx.stroke();
+      });
+    }
+
+    function loop(){ update(); draw(); requestAnimationFrame(loop); }
+    loop();
+  </script>
+</body>
+</html>
