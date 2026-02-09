@@ -226,7 +226,7 @@ Commitments and facts are signed with a corresponding capability signature.
 
 Security note:
 - signing capability which is identified through `capabilityPubKey` not belonging to oracle would allow owner of corresponding private key to make commitments and provide facts on behalf of oracle. Even if attacker does not control oracle's endpoint - it could still publish reports with proved `fact-conflict` or dispute `missing-fact` reports with erroneous data.
-- Thus, it is recommended to derive capability private keys from root oracle private key (HD-wallet approach)
+- Thus, it is recommended to derive capability private keys from same PK as root oracle private key (HD-wallet approach)
 
 ## Foreign advertisers (synthetic oracles)
 Some corporate oracles might not wish to do PoW in order to advertise themselves through Mega P2P, but they would wish to keep Mega-protocol and standard for endpoints.
