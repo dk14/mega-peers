@@ -33,12 +33,15 @@
   ----
 - legal note: party comitted serious fiancial crime (NOT related to this project) - as I dicovered. They took around million usd for meaningless one-day feature, they did not even implement it - Cardano Marlowe implemented for them (as commits prove). They extracted a million using Cardano's public funding. Not surprising to me, given Charles irradic behavior and community-ideas. I reported to Cardano and Wolfram as soon as dicovered, and warned them about this party way before, since I used to work in IOHK.
 - I read a lecture about spending habbits to the party.
-
+- I read a lecture about treasury management to Charles Hoskinson
+- I read a lecture about outbranding and outsourcing to Stephen Wolfram
+  
   ----
 - Dirty code making dev dirty - is a superstition :). Dirty code developes immune system.
 
   ----
 ### Bottom line
 
-This product is commercial - so extra funds have to be invested into proper maintainability. 
-And proper target systems have to be found for it.
+This product is commercial - so:
+- extra funds have to be invested into proper maintainability
+- proper target systems have to be found for it.
