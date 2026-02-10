@@ -49,7 +49,7 @@ Protocol and specifications are in `src/protocol.ts` and `mega-peers-spec.yaml`.
 - if you pay attention - core features are well-designed.
 - other, non-essentials - no one invested in time to refactor and re-design. It's just 2 months work here.
 
-- service architecture is well-designed. It is NOT monolitic, not tangled in dependencies. Docs have diagrams - if you look for it.
+- service architecture is well-designed. It is NOT monolitic, NOT tangled in dependencies. Docs have diagrams - if you look for it.
 - I did not split components into several repos - because party declined investing into it.
 - It gets complex around cryptography because it should.
 
