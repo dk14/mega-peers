@@ -17,7 +17,7 @@
 
 - I ignored commit messages and many practices - to prevent party from integrating with this product. 
 - I am the only one who remebers what supposed to be where and what means what. And I warned party - this will happen.
-- That's because party ignored Wolfram Alpha stuff and wanted boxing matches stats to be here. Boxing is gay. Play football.
+- That's because party ignored Wolfram Alpha stuff and wanted boxing matches stats to be here. PoW-certification is useless for that, since services are centralized. Boxing is gay. Play football.
 
 - legal note: party comitted serious fiancial crime (NOT related to this project) - as I dicovered. They took around million usd for meaningless one-day feature, they did not even implement it - Cardano Marlowe implemented for them (as commits prove). They extracted a million using Cardano's public funding. Not surprising to me, given Charles irradic behavior and community-ideas. I reported to Cardano and Wolfram as soon as dicovered, and warned them about this party way before, since I used to work in IOHK.
 - I read a lecture about spending habbits to the party.
