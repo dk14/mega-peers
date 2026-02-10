@@ -1,5 +1,9 @@
-- if you pay attention - core features are well-designed. Well-covered with tests. Protocol is 100% certified with tests - properties are proven!
-- other, non-essentials - no one invested in time to refactor and re-design. It's just 2 months work here.
+- if you pay attention - core features are well-designed. Well-covered with tests.
+  
+- Protocol iself is 100% certified with coverage tests - properties are proven! 
+- Full coverage is equivalent to mathematical proof (given that program terminates), no need to use proof assistant.
+  
+- non-essential features: no one invested in time to refactor and re-design. It's just 2 months work here.
 
 - service architecture is well-designed. It is NOT monolitic, NOT tangled in dependencies. Docs have diagrams - if you look for it.
 - I did not split components into several repos - because party declined investing into it.
@@ -22,7 +26,7 @@
 - legal note: party comitted serious fiancial crime (NOT related to this project) - as I dicovered. They took around million usd for meaningless one-day feature, they did not even implement it - Cardano Marlowe implemented for them (as commits prove). They extracted a million using Cardano's public funding. Not surprising to me, given Charles irradic behavior and community-ideas. I reported to Cardano and Wolfram as soon as dicovered, and warned them about this party way before, since I used to work in IOHK.
 - I read a lecture about spending habbits to the party.
 
-- If you, reader, think dirty code makes dev dirty - you superstitious :). It developes immune system.
+- Dirty code making dev dirty - is a superstition :). Dirty code developes immune system.
 
 
 This product is commercial - so extra funds have to be invested into proper maintainability. 
