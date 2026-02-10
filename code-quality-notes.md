@@ -18,7 +18,7 @@
   ----
 - For the complexity of this product - the result is better than what teamwork tasked with same problem would output in a year. I engineered for decade, seen things.
 - Don't forget: this is novel solution supporting something often thought impossible: Full and secure BTC contracts of any complexity, purely trust-less oracless.
-- It is a result of long-term research in Bitcoin.
+- It is a result of long-term research in Bitcoin. It is more research than Cardano did ever.
 
   ----
 - I kept many files in root - I know that.
