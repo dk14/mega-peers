@@ -53,10 +53,10 @@ Protocol and specifications are in `src/protocol.ts` and `mega-peers-spec.yaml`.
 - I did not split components into several repos - because party declined investing into it.
 - It gets complex around cryptography because it should.
 
-- Frameworks (for unit tests, UI etc) would not give any actual advantage. This my position here, not party - party did not care. IoC is just a pattern.
+- Frameworks (for unit tests, UI, React etc) would not give any actual advantage: IoC is just a pattern. This my position here, not party - party did not care.
 
-- For the complexity of this product - the result is better than what teamwork tasked with same problem would output
-- Don't forget: this is novel solution supporting something often thought impossible: Full and secure BTC contracts, purely trust-less oracless.
+- For the complexity of this product - the result is better than what teamwork tasked with same problem would output. I engineered for decade, seen things.
+- Don't forget: this is novel solution supporting something often thought impossible: Full and secure BTC contracts of any complexity, purely trust-less oracless.
 - It is a result of long-term research in Bitcoin.
 
 - I kept many files in root - I know that.
