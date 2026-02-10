@@ -63,4 +63,7 @@ Protocol and specifications are in `src/protocol.ts` and `mega-peers-spec.yaml`.
 - I did not clean up - because was not paid to do so. I warned the party aboput consequences repeatedly.
 - Invest proper funds - you'll get clean code and repo.
 
+- I ignored commit messages and many practices - to prevent party from integrating with this product. 
+- Since party ignored Wolfram stuff and wanted boxing matches stats to be here. Boxing is gay. Play football.
+
 - If you think dirty code makes dev dirty - you superstitious :). It developes immune system.
