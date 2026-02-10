@@ -43,3 +43,24 @@ Protocol and specifications are in `src/protocol.ts` and `mega-peers-spec.yaml`.
 ## Use cases
  Non-essential APIs and apps are under `src/client-api/` (oracles and traders, contracts demo), `webapp/` (p2p exchange UI), `src-web/` (matching). See [docs](https://dk14.github.io/mega-peers/docs/).
 > Security. Non-essential APIs need stricter typescript flavor, testnet integration tests and security audits for crypto-mainnet uses (as well as HD-wallet support). p2p-network needs real-life performance tests for scaling.
+
+# Code quality notes
+
+- if you pay attention - core features are well-designed.
+- other, non-essentials - no one invested in time to refactor and re-design. It's just 2 months work here.
+
+- service architecture is well-designed. It is NOT monolitic, not tangled in dependencies. Docs have diagrams - if you look for it.
+- I did not split components into several repos - because party declined investing into it.
+- It gets complex around cryptography because it should.
+
+- Frameworks (for unit tests, UI etc) would not give any actual advantage. This my position here, not party - party did not care. IoC is just a pattern.
+
+- For the complexity of this product - the result is better than what teamwork tasked with same problem would output
+- Don't forget: this is novel solution supporting something often thought impossible: Full and secure BTC contracts, purely trust-less oracless.
+- It is a result of long-term research in Bitcoin.
+
+- I kept many files in root - I know that.
+- I did not clean up - because was not paid to do so. I warned the party aboput consequences repeatedly.
+- Invest proper funds - you'll get clean code and repo.
+
+- If you think dirty code makes dev dirty - you superstitious :). It developes immune system.
