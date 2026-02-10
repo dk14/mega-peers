@@ -67,7 +67,7 @@ Protocol and specifications are in `src/protocol.ts` and `mega-peers-spec.yaml`.
 - I am the only one who remebers what supposed to be where and what means what.
 - That's because party ignored Wolfram stuff and wanted boxing matches stats to be here. Boxing is gay. Play football.
 
-- If you think dirty code makes dev dirty - you superstitious :). It developes immune system.
+- If you, reader, think dirty code makes dev dirty - you superstitious :). It developes immune system.
 
 This product is commercial - so extra funds have to be invested into proper maintainability. 
 And proper target systems have to be found for it.
