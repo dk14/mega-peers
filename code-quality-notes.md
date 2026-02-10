@@ -16,7 +16,7 @@
 - Invest proper funds - you'll get clean code and repo. If you haha with me - I'll keep the state of repo like this, u get haha results.
 
 - I ignored commit messages and many practices - to prevent party from integrating with this product. 
-- I am the only one who remebers what supposed to be where and what means what.
+- I am the only one who remebers what supposed to be where and what means what. And I warned party - this will happen.
 - That's because party ignored Wolfram stuff and wanted boxing matches stats to be here. Boxing is gay. Play football.
 
 - If you, reader, think dirty code makes dev dirty - you superstitious :). It developes immune system.
