@@ -61,7 +61,7 @@ Protocol and specifications are in `src/protocol.ts` and `mega-peers-spec.yaml`.
 
 - I kept many files in root - I know that.
 - I did not clean up - because was not paid to do so. I warned the party aboput consequences repeatedly.
-- Invest proper funds - you'll get clean code and repo.
+- Invest proper funds - you'll get clean code and repo. If you haha with me - I'll keep the state of repo like this, u get haha results.
 
 - I ignored commit messages and many practices - to prevent party from integrating with this product. 
 - Since party ignored Wolfram stuff and wanted boxing matches stats to be here. Boxing is gay. Play football.
