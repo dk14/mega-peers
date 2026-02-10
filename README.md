@@ -68,4 +68,5 @@ Protocol and specifications are in `src/protocol.ts` and `mega-peers-spec.yaml`.
 
 - If you think dirty code makes dev dirty - you superstitious :). It developes immune system.
 
-Give me money - I'll refactor it. Money is cure!
+This product is commercial - so extra funds have to be invested into proper maintainability. 
+And proper target systems have to be found for it.
