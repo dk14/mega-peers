@@ -47,3 +47,9 @@ Protocol and specifications are in `src/protocol.ts` and `mega-peers-spec.yaml`.
 ## Code and repo quality notes
 
 [HERE](code-quality-notes.md)
+
+## Contact and donations:
+
+mtkndr@proton.me
+
+BTC: bc1qekvmkczge3hxrvwdf2lj3yyvgjnparn3fdf9lg
