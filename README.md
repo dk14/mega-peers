@@ -53,3 +53,5 @@ Protocol and specifications are in `src/protocol.ts` and `mega-peers-spec.yaml`.
 mtkndr@proton.me
 
 BTC: bc1qekvmkczge3hxrvwdf2lj3yyvgjnparn3fdf9lg
+
+Credentials: [youtube with IOHK](https://www.youtube.com/watch?v=RhXlOdNyGn8), [paper](https://www.researchgate.net/publication/354641980_Standardized_Crypto-Loans_on_the_Cardano_Blockchain), [actus standard](https://www.actusfrf.org/post/marlowe-and-actus), [research with wolfram](https://github.com/dk14/wolfram-oracle-research)
