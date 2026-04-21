@@ -73,6 +73,7 @@ const readline = __importStar(require("readline"));
             "maxMsgLength": 1000000,
             "httpPort": portHttp,
             "p2pPort": portP2P,
+            "p2pKeepAlive": 100,
             "hostname": "localhost",
             "isTest": true,
             "p2pseed": seed.map(port => { return { "server": "localhost", "port": port }; })
@@ -223,6 +224,10 @@ const readline = __importStar(require("readline"));
     };
     await waitFor(peers.map(p => 'http-get://localhost:' + p.port + '/id'));
     console.log("=========TESTING==========");
+    const atLeastOne = false;
+    const reCheckInterval = 1000;
+    //todo check node dicovery reports instead - to ensure all nodes discovered one another
+    await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
     console.log("Protocol...\n");
     var okay = false;
     const oracle1 = await genOracle();
@@ -245,14 +250,14 @@ const readline = __importStar(require("readline"));
             results.forEach(r => {
                 assert.deepStrictEqual(r, [oracle1.body]);
                 semaphore++;
-                if (true || semaphore === results.length) {
+                if (atLeastOne || semaphore === results.length) {
                     okay = true;
                 }
             });
         }
         catch {
         }
-        await new Promise(resolve => setTimeout(() => { resolve(null); }, 100));
+        await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
         console.log("    synced " + semaphore + "/" + results.length);
     }
     console.log("");
@@ -276,14 +281,14 @@ const readline = __importStar(require("readline"));
             results2.forEach(r => {
                 assert.deepStrictEqual(r, [cp1]);
                 semaphore++;
-                if (true || semaphore === results2.length) {
+                if (atLeastOne || semaphore === results2.length) {
                     okay = true;
                 }
             });
         }
         catch {
         }
-        await new Promise(resolve => setTimeout(() => { resolve(null); }, 100));
+        await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
         console.log("    synced " + semaphore + "/" + results2.length);
     }
     console.log("");
@@ -307,14 +312,14 @@ const readline = __importStar(require("readline"));
             results3.forEach(r => {
                 assert.deepStrictEqual(r, [r1]);
                 semaphore++;
-                if (true || semaphore === results3.length) {
+                if (atLeastOne || semaphore === results3.length) {
                     okay = true;
                 }
             });
         }
         catch {
         }
-        await new Promise(resolve => setTimeout(() => { resolve(null); }, 100));
+        await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
         console.log("    synced " + semaphore + "/" + results3.length);
     }
     console.log("");
@@ -338,14 +343,14 @@ const readline = __importStar(require("readline"));
             results4.forEach(r => {
                 assert.deepStrictEqual(r, [o1]);
                 semaphore++;
-                if (true || semaphore === results4.length) {
+                if (atLeastOne || semaphore === results4.length) {
                     okay = true;
                 }
             });
         }
         catch {
         }
-        await new Promise(resolve => setTimeout(() => { resolve(null); }, 100));
+        await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
         console.log("    synced " + semaphore + "/" + results4.length);
     }
     console.log("");
