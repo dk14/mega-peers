@@ -338,10 +338,9 @@ const readline = __importStar(require("readline"));
             results4.forEach(r => {
                 assert.deepStrictEqual(r, [o1]);
                 semaphore++;
-                if (semaphore === results4.length) {
+                if (true || semaphore === results4.length) {
                     okay = true;
                 }
-                okay = true;
             });
         }
         catch {
