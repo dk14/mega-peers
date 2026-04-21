@@ -73,7 +73,7 @@ const readline = __importStar(require("readline"));
             "maxMsgLength": 1000000,
             "httpPort": portHttp,
             "p2pPort": portP2P,
-            "p2pKeepAlive": 300,
+            "p2pKeepAlive": 500,
             "hostname": "localhost",
             "isTest": true,
             "p2pseed": seed.map(port => { return { "server": "localhost", "port": port }; })
@@ -225,7 +225,7 @@ const readline = __importStar(require("readline"));
     await waitFor(peers.map(p => 'http-get://localhost:' + p.port + '/id'));
     console.log("=========TESTING==========");
     const atLeastOne = false;
-    const reCheckInterval = 200;
+    const reCheckInterval = 500;
     await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
     console.log("Protocol...\n");
     var okay = false;
@@ -444,6 +444,7 @@ const readline = __importStar(require("readline"));
         catch (err) {
             //console.log(err); okay = true;
         }
+        await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
     }
     console.log("");
     console.log("2. Trader console:");
@@ -466,6 +467,7 @@ const readline = __importStar(require("readline"));
         catch (err) {
             //console.log(err); okay = true;
         }
+        await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
     }
     console.log(" b) collect capabilities");
     const cpsTag = "cps";
@@ -488,6 +490,7 @@ const readline = __importStar(require("readline"));
         catch (err) {
             //console.log(err); okay = true;
         }
+        await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
     }
     console.log(" c) collect reports");
     const r2 = await genReport(oracleKeypair.pub, capabilityPubKey);
@@ -516,6 +519,7 @@ const readline = __importStar(require("readline"));
         catch (err) {
             //console.log(err); okay = true;
         }
+        await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
     }
     console.log(" d) collect offers");
     const o2 = await genOffer(capabilityPubKey);
@@ -544,6 +548,7 @@ const readline = __importStar(require("readline"));
         catch (err) {
             //console.log(err); okay = true;
         }
+        await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
     }
     clientpeer.proc.kill();
     console.log("--------------------------");
