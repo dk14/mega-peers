@@ -93,12 +93,12 @@ const readline = __importStar(require("readline"));
         }
         if (traderPort !== undefined) {
             cfg["trader"] = {
-                "broadcastOfferCycle": 100,
-                "broadcastReportCycle": 100,
-                "collectOffersCycle": 100,
-                "collectReportsCycle": 100,
-                "collectOracleAdsCycle": 100,
-                "collectOracleCpCycle": 100,
+                "broadcastOfferCycle": 500,
+                "broadcastReportCycle": 500,
+                "collectOffersCycle": 1000,
+                "collectReportsCycle": 1000,
+                "collectOracleAdsCycle": 1000,
+                "collectOracleCpCycle": 1000,
                 "pageSize": 100,
                 "maxOraclesPages": 2,
                 "maxCpPages": 2,
@@ -226,7 +226,10 @@ const readline = __importStar(require("readline"));
     console.log("=========TESTING==========");
     const atLeastOne = false;
     const reCheckInterval = 500;
-    await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
+    const awaits = false;
+    if (awaits) {
+        await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
+    }
     console.log("Protocol...\n");
     var okay = false;
     const oracle1 = await genOracle();
@@ -261,8 +264,10 @@ const readline = __importStar(require("readline"));
         }
         catch {
         }
-        await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
-        console.log("    synced " + semaphore + "/" + results.length);
+        if (awaits) {
+            await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
+            console.log("    synced " + semaphore + "/" + results.length);
+        }
     }
     console.log("");
     console.log("3) Submit capability");
@@ -297,8 +302,10 @@ const readline = __importStar(require("readline"));
         }
         catch {
         }
-        await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
-        console.log("    synced " + semaphore + "/" + results2.length);
+        if (awaits) {
+            await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
+            console.log("    synced " + semaphore + "/" + results2.length);
+        }
     }
     console.log("");
     console.log("5) Submit report");
@@ -333,8 +340,10 @@ const readline = __importStar(require("readline"));
         }
         catch {
         }
-        await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
-        console.log("    synced " + semaphore + "/" + results3.length);
+        if (awaits) {
+            await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
+            console.log("    synced " + semaphore + "/" + results3.length);
+        }
     }
     console.log("");
     console.log("7) Submit offer");
@@ -369,8 +378,10 @@ const readline = __importStar(require("readline"));
         }
         catch {
         }
-        await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
-        console.log("    synced " + semaphore + "/" + results4.length);
+        if (awaits) {
+            await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
+            console.log("    synced " + semaphore + "/" + results4.length);
+        }
     }
     console.log("");
     console.log("--------------------------");
@@ -444,7 +455,9 @@ const readline = __importStar(require("readline"));
         catch (err) {
             //console.log(err); okay = true;
         }
-        await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
+        if (awaits) {
+            await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
+        }
     }
     console.log("");
     console.log("2. Trader console:");
@@ -467,7 +480,9 @@ const readline = __importStar(require("readline"));
         catch (err) {
             //console.log(err); okay = true;
         }
-        await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
+        if (awaits) {
+            await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
+        }
     }
     console.log(" b) collect capabilities");
     const cpsTag = "cps";
@@ -490,7 +505,9 @@ const readline = __importStar(require("readline"));
         catch (err) {
             //console.log(err); okay = true;
         }
-        await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
+        if (awaits) {
+            await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
+        }
     }
     console.log(" c) collect reports");
     const r2 = await genReport(oracleKeypair.pub, capabilityPubKey);
@@ -524,7 +541,9 @@ const readline = __importStar(require("readline"));
         catch (err) {
             //console.log(err); okay = true;
         }
-        await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
+        if (awaits) {
+            await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
+        }
     }
     console.log(" d) collect offers");
     const o2 = await genOffer(capabilityPubKey);
@@ -558,7 +577,9 @@ const readline = __importStar(require("readline"));
         catch (err) {
             //console.log(err); okay = true;
         }
-        await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
+        if (awaits) {
+            await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
+        }
     }
     clientpeer.proc.kill();
     console.log("--------------------------");
