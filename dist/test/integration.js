@@ -73,7 +73,7 @@ const readline = __importStar(require("readline"));
             "maxMsgLength": 1000000,
             "httpPort": portHttp,
             "p2pPort": portP2P,
-            "p2pKeepAlive": 100,
+            "p2pKeepAlive": 300,
             "hostname": "localhost",
             "isTest": true,
             "p2pseed": seed.map(port => { return { "server": "localhost", "port": port }; })
