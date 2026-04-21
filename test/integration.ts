@@ -52,7 +52,7 @@ const start = async (portP2P: number, portHttp: number, seed: number[], oraclePo
         "maxMsgLength": 1000000,
         "httpPort": portHttp,
         "p2pPort": portP2P,
-        "p2pKeepAlive": 100,
+        "p2pKeepAlive": 300,
         "hostname": "localhost",
         "isTest": true,
         "p2pseed": seed.map(port => {return {"server": "localhost", "port" : port}})
