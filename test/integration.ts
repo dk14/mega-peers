@@ -517,6 +517,8 @@ while (!okay) {
     } catch(err) {
         //console.log(err); okay = true;
     }
+
+    await new Promise(resolve => setTimeout(() => {resolve(null);}, reCheckInterval))
 }
 
 console.log("")
@@ -542,6 +544,8 @@ while (!okay) {
         //console.log(err); okay = true;
     }
 
+    await new Promise(resolve => setTimeout(() => {resolve(null);}, reCheckInterval))
+
 }
 
 console.log(" b) collect capabilities")
@@ -566,6 +570,8 @@ while (!okay) {
     } catch(err) {
         //console.log(err); okay = true;
     }
+
+    await new Promise(resolve => setTimeout(() => {resolve(null);}, reCheckInterval))
 
 }
 
@@ -601,6 +607,8 @@ while (!okay) {
         //console.log(err); okay = true;
     }
 
+    await new Promise(resolve => setTimeout(() => {resolve(null);}, reCheckInterval))
+
 }
 
 console.log(" d) collect offers")
@@ -632,6 +640,8 @@ while (!okay) {
     } catch(err) {
         //console.log(err); okay = true;
     }
+
+    await new Promise(resolve => setTimeout(() => {resolve(null);}, reCheckInterval))
 
 }
 
