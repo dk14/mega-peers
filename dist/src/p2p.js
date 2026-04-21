@@ -110,8 +110,8 @@ const startP2P = async (cfg, peerApi = exports.serverPeerAPI) => {
     function isPeerDuplicate(addr) {
         const found = peers.findIndex(x => addr.server === x.addr.server && addr.port === x.addr.port);
         if (found > -1) {
-            if ((peers[found].addr.seqNo ?? 0) < (addr.seqNo ?? 0)) {
-                peers[found].addr.seqNo = addr.seqNo;
+            if ((peers[found].addr.seqNo ?? -1) < (addr.seqNo ?? 0)) {
+                peers[found].addr.seqNo = addr.seqNo ?? 0;
                 return false;
             }
             return true;
@@ -186,7 +186,7 @@ const startP2P = async (cfg, peerApi = exports.serverPeerAPI) => {
     }
     function reduceCTTL(content) {
         const msg = JSON.parse(content);
-        if (msg.cTTL > (cfg.ttlThreshold ?? 7)) {
+        if (msg.cTTL > (cfg.ttlThreshold ?? 3)) {
             return [JSON.stringify(msg), false];
         }
         if (msg.cTTL <= 0) {

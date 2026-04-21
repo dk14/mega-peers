@@ -93,12 +93,12 @@ const readline = __importStar(require("readline"));
         }
         if (traderPort !== undefined) {
             cfg["trader"] = {
-                "broadcastOfferCycle": 3000,
-                "broadcastReportCycle": 3000,
-                "collectOffersCycle": 2000,
-                "collectReportsCycle": 2000,
-                "collectOracleAdsCycle": 2000,
-                "collectOracleCpCycle": 2000,
+                "broadcastOfferCycle": 100,
+                "broadcastReportCycle": 100,
+                "collectOffersCycle": 100,
+                "collectReportsCycle": 100,
+                "collectOracleAdsCycle": 100,
+                "collectOracleCpCycle": 100,
                 "pageSize": 100,
                 "maxOraclesPages": 2,
                 "maxCpPages": 2,
@@ -507,11 +507,16 @@ const readline = __importStar(require("readline"));
     okay = false;
     while (!okay) {
         try {
-            await (0, node_fetch_1.default)(addr(peers[0]) + 'report', {
-                method: 'post',
-                body: JSON.stringify(r2),
-                headers: { 'Content-Type': 'application/json' }
-            });
+            try {
+                await (0, node_fetch_1.default)(addr(peers[0]) + 'report', {
+                    method: 'post',
+                    body: JSON.stringify(r2),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+            }
+            catch (err) {
+                //console.log(err)
+            }
             const list = await (await (0, node_fetch_1.default)(`${traderPrefix}listReports`)).json();
             assert.deepStrictEqual(list, [r2]);
             okay = true;
@@ -536,11 +541,16 @@ const readline = __importStar(require("readline"));
     okay = false;
     while (!okay) {
         try {
-            await (0, node_fetch_1.default)(addr(peers[0]) + 'offer', {
-                method: 'post',
-                body: JSON.stringify(o2),
-                headers: { 'Content-Type': 'application/json' }
-            });
+            try {
+                await (0, node_fetch_1.default)(addr(peers[0]) + 'offer', {
+                    method: 'post',
+                    body: JSON.stringify(o2),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+            }
+            catch (err) {
+                //console.log(err)
+            }
             const list = await (await (0, node_fetch_1.default)(`${traderPrefix}listOffers`)).json();
             assert.deepStrictEqual(list, [o2]);
             okay = true;
