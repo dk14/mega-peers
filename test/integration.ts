@@ -127,12 +127,12 @@ interface OracleIdWithPk {
     pk: string
 }
 
-const genOracle = async (): Promise<OracleIdWithPk> => {
+const genOracle = async (seqNo = 0): Promise<OracleIdWithPk> => {
     const keypair = testOnlyGenerateKeyPair()
     const oracle: nd.OracleId = {
         pubkey: keypair.pub,
         oracleSignature: undefined,
-        seqNo: 0,
+        seqNo: seqNo,
         cTTL: 0,
         pow: undefined,
         bid:  {
@@ -232,7 +232,7 @@ await waitFor(peers.map(p => 'http-get://localhost:' + p.port + '/id'))
 
 console.log("=========TESTING==========")
 
-const atLeastOne = true
+const atLeastOne = false
 const reCheckInterval = 1000
 
 await new Promise(resolve => setTimeout(() => {resolve(null);}, reCheckInterval))
@@ -258,6 +258,12 @@ console.log("2) Check oracle id synced across the network")
 
 okay = false
 while (!okay) {
+
+    await fetch(addr(peers[0]) + 'oracle', {
+        method: 'post',
+        body: JSON.stringify(oracle1.body),
+        headers: {'Content-Type': 'application/json'}
+    })
 
     const responses = await Promise.all(peers.map(p => fetch(addr(p) + 'oracles')))
     const jsons = await Promise.all(responses.map(r => r.json()))
@@ -303,6 +309,13 @@ assert.strictEqual(res2, '"success"')
 console.log("4) Check capability synced across the network")
 okay = false
 while (!okay) {
+
+    await fetch(addr(peers[0]) + 'capability', {
+        method: 'post',
+        body: JSON.stringify(cp1),
+        headers: {'Content-Type': 'application/json'}
+    })
+
     const responses2 = await Promise.all(peers.map(p => fetch(addr(p) + 'capabilities?pubkey=' + encodeURIComponent(oracle1.body.pubkey))))
     const jsons2 = await Promise.all(responses2.map(r => r.json()))
     const results2 = jsons2.map(j => j as nd.OracleCapability[])
@@ -341,6 +354,13 @@ assert.strictEqual(res3, '"success"')
 console.log("6) Check report synced across the network")
 okay = false
 while (!okay) {
+
+    await fetch(addr(peers[0]) + 'report', {
+        method: 'post',
+        body: JSON.stringify(r1),
+        headers: {'Content-Type': 'application/json'}
+    })
+
     const responses3 = await Promise.all(peers.map(p => fetch(addr(p) + 'reports?pubkey=' + encodeURIComponent(oracle1.body.pubkey))))
     const jsons3 = await Promise.all(responses3.map(r => r.json()))
     const results3 = jsons3.map(j => j as nd.OracleCapability[])
@@ -382,6 +402,12 @@ assert.strictEqual(res4, '"success"')
 console.log("8) Check offer synced across the network")
 okay = false
 while (!okay) {
+
+    await fetch(addr(peers[0]) + 'offer', {
+        method: 'post',
+        body: JSON.stringify(o1),
+        headers: {'Content-Type': 'application/json'}
+    })
 
     const responses4 = await Promise.all(peers.map(p => fetch(addr(p) + 'offers?pubkey=' + encodeURIComponent(cp1.capabilityPubKey))))
     const jsons4 = await Promise.all(responses4.map(r => r.json()))
