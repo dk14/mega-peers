@@ -36,7 +36,7 @@ npm run webtest-it trace  # trace matching stdout
 
 > tests should printout "OK!" or exit process with error
 
->> ignore deploy commits in order to see tests passing on github
+>> ignore automatic deploy commits in order to see tests passing on github
 # Protocol
 
 Protocol and specifications are in `src/protocol.ts` and `mega-peers-spec.yaml`. Protocol reference implementation is in `src/api.ts`. 
