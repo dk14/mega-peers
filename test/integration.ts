@@ -253,16 +253,27 @@ while (!okay) {
     const responses = await Promise.all(peers.map(p => fetch(addr(p) + 'oracles')))
     const jsons = await Promise.all(responses.map(r => r.json()))
     const results = jsons.map(j => j as nd.OracleId[])
+    let semaphore = 0
 
 
     try {
         results.forEach(r => {
             assert.deepStrictEqual(r, [oracle1.body])
-            okay = true
+
+            semaphore++
+            if (true || semaphore === results.length) {
+                okay = true
+            }
         })
     } catch {
         
     }
+    await new Promise(resolve => setTimeout(() => {resolve(null);}, 100))
+
+    
+    console.log("    synced " + semaphore + "/" + results.length)
+    
+    
 }
 
 console.log("")
@@ -286,14 +297,22 @@ while (!okay) {
     const responses2 = await Promise.all(peers.map(p => fetch(addr(p) + 'capabilities?pubkey=' + encodeURIComponent(oracle1.body.pubkey))))
     const jsons2 = await Promise.all(responses2.map(r => r.json()))
     const results2 = jsons2.map(j => j as nd.OracleCapability[])
+    let semaphore = 0
+
     try {
         results2.forEach(r => {
             assert.deepStrictEqual(r, [cp1])
-            okay = true
+            semaphore++
+            if (true || semaphore === results2.length) {
+                okay = true
+            }
         })
     } catch {
 
     }
+    await new Promise(resolve => setTimeout(() => {resolve(null);}, 100))
+
+    console.log("    synced " + semaphore + "/" + results2.length)
 }
 console.log("")
 console.log("5) Submit report")
@@ -316,15 +335,23 @@ while (!okay) {
     const responses3 = await Promise.all(peers.map(p => fetch(addr(p) + 'reports?pubkey=' + encodeURIComponent(oracle1.body.pubkey))))
     const jsons3 = await Promise.all(responses3.map(r => r.json()))
     const results3 = jsons3.map(j => j as nd.OracleCapability[])
+    let semaphore = 0
 
     try {
         results3.forEach(r => {
             assert.deepStrictEqual(r, [r1])
-            okay = true
+            semaphore++
+            if (true || semaphore === results3.length) {
+                okay = true
+            }
         })
     } catch {
 
     }
+
+    await new Promise(resolve => setTimeout(() => {resolve(null);}, 100))
+
+    console.log("    synced " + semaphore + "/" + results3.length)
     
 }
 
@@ -350,15 +377,24 @@ while (!okay) {
     const responses4 = await Promise.all(peers.map(p => fetch(addr(p) + 'offers?pubkey=' + encodeURIComponent(cp1.capabilityPubKey))))
     const jsons4 = await Promise.all(responses4.map(r => r.json()))
     const results4 = jsons4.map(j => j as nd.OracleCapability[])
+    let semaphore = 0
 
     try {
         results4.forEach(r => {
             assert.deepStrictEqual(r, [o1])
+            semaphore++
+            if (semaphore === results4.length) {
+                okay = true
+            }
             okay = true
         })
     } catch {
 
     }
+
+     await new Promise(resolve => setTimeout(() => {resolve(null);}, 100))
+
+    console.log("    synced " + semaphore + "/" + results4.length)
     
 }
 
