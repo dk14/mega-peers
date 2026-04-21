@@ -133,12 +133,12 @@ const readline = __importStar(require("readline"));
             flag = true;
         }));
     };
-    const genOracle = async () => {
+    const genOracle = async (seqNo = 0) => {
         const keypair = (0, crypto_1.testOnlyGenerateKeyPair)();
         const oracle = {
             pubkey: keypair.pub,
             oracleSignature: undefined,
-            seqNo: 0,
+            seqNo: seqNo,
             cTTL: 0,
             pow: undefined,
             bid: {
@@ -224,8 +224,8 @@ const readline = __importStar(require("readline"));
     };
     await waitFor(peers.map(p => 'http-get://localhost:' + p.port + '/id'));
     console.log("=========TESTING==========");
-    const atLeastOne = true;
-    const reCheckInterval = 1000;
+    const atLeastOne = false;
+    const reCheckInterval = 200;
     await new Promise(resolve => setTimeout(() => { resolve(null); }, reCheckInterval));
     console.log("Protocol...\n");
     var okay = false;
@@ -241,6 +241,11 @@ const readline = __importStar(require("readline"));
     console.log("2) Check oracle id synced across the network");
     okay = false;
     while (!okay) {
+        await (0, node_fetch_1.default)(addr(peers[0]) + 'oracle', {
+            method: 'post',
+            body: JSON.stringify(oracle1.body),
+            headers: { 'Content-Type': 'application/json' }
+        });
         const responses = await Promise.all(peers.map(p => (0, node_fetch_1.default)(addr(p) + 'oracles')));
         const jsons = await Promise.all(responses.map(r => r.json()));
         const results = jsons.map(j => j);
@@ -272,6 +277,11 @@ const readline = __importStar(require("readline"));
     console.log("4) Check capability synced across the network");
     okay = false;
     while (!okay) {
+        await (0, node_fetch_1.default)(addr(peers[0]) + 'capability', {
+            method: 'post',
+            body: JSON.stringify(cp1),
+            headers: { 'Content-Type': 'application/json' }
+        });
         const responses2 = await Promise.all(peers.map(p => (0, node_fetch_1.default)(addr(p) + 'capabilities?pubkey=' + encodeURIComponent(oracle1.body.pubkey))));
         const jsons2 = await Promise.all(responses2.map(r => r.json()));
         const results2 = jsons2.map(j => j);
@@ -303,6 +313,11 @@ const readline = __importStar(require("readline"));
     console.log("6) Check report synced across the network");
     okay = false;
     while (!okay) {
+        await (0, node_fetch_1.default)(addr(peers[0]) + 'report', {
+            method: 'post',
+            body: JSON.stringify(r1),
+            headers: { 'Content-Type': 'application/json' }
+        });
         const responses3 = await Promise.all(peers.map(p => (0, node_fetch_1.default)(addr(p) + 'reports?pubkey=' + encodeURIComponent(oracle1.body.pubkey))));
         const jsons3 = await Promise.all(responses3.map(r => r.json()));
         const results3 = jsons3.map(j => j);
@@ -334,6 +349,11 @@ const readline = __importStar(require("readline"));
     console.log("8) Check offer synced across the network");
     okay = false;
     while (!okay) {
+        await (0, node_fetch_1.default)(addr(peers[0]) + 'offer', {
+            method: 'post',
+            body: JSON.stringify(o1),
+            headers: { 'Content-Type': 'application/json' }
+        });
         const responses4 = await Promise.all(peers.map(p => (0, node_fetch_1.default)(addr(p) + 'offers?pubkey=' + encodeURIComponent(cp1.capabilityPubKey))));
         const jsons4 = await Promise.all(responses4.map(r => r.json()));
         const results4 = jsons4.map(j => j);
