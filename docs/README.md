@@ -16,7 +16,7 @@ Oracle's reputation is managed as a set of verifiable reports of malleability. T
 
 Everything is stored in Mega's mempools. No blockchain required for the network.
 
-Mega supports advertisement for trading offers. Offer format allows expression of any meaningful type of contract: from binary options to "perpetual" swaps ([Trader](trader.md)). Mega provides powerful typesafe eDSL for writing contracts of arbitrary complexity ([Discreet](dsl.md)). 
+Mega supports advertisement for trading offers. Offer format allows expression of any meaningful type of contract: from binary options to "perpetual" swaps ([Trader](traders.md)). Mega provides powerful typesafe eDSL for writing contracts of arbitrary complexity ([Discreet](dsl.md)). 
 
 Trader's contracts are free from oracle's supervision. Oracle is not aware of trader's blockchain at all. Pull-based model ([Oracle](oracle.md))
 
