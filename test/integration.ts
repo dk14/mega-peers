@@ -595,11 +595,16 @@ await fetch(traderPrefix + 'collectReports?tag=' + encodeURIComponent(rpsTag), {
 okay = false
 while (!okay) {
     try {
-        await fetch(addr(peers[0]) + 'report', {
-            method: 'post',
-            body: JSON.stringify(r2),
-            headers: {'Content-Type': 'application/json'}
-        })
+        try {
+            await fetch(addr(peers[0]) + 'report', {
+                method: 'post',
+                body: JSON.stringify(r2),
+                headers: {'Content-Type': 'application/json'}
+            })
+        } catch(err) {
+            //console.log(err)
+        }
+        
         const list = await (await fetch(`${traderPrefix}listReports`)).json() as nd.Report[]
         assert.deepStrictEqual(list, [r2])
         okay = true
@@ -629,11 +634,16 @@ await fetch(traderPrefix + 'collectOffers?tag=' + encodeURIComponent(ofsTag), {
 okay = false
 while (!okay) {
     try {
-        await fetch(addr(peers[0]) + 'offer', {
-            method: 'post',
-            body: JSON.stringify(o2),
-            headers: {'Content-Type': 'application/json'}
-        })
+        try {
+            await fetch(addr(peers[0]) + 'offer', {
+                method: 'post',
+                body: JSON.stringify(o2),
+                headers: {'Content-Type': 'application/json'}
+            })
+        } catch(err) {
+            //console.log(err)
+        }
+        
         const list = await (await fetch(`${traderPrefix}listOffers`)).json() as nd.OfferMsg[]
         assert.deepStrictEqual(list, [o2])
         okay = true
