@@ -52,6 +52,7 @@ const start = async (portP2P: number, portHttp: number, seed: number[], oraclePo
         "maxMsgLength": 1000000,
         "httpPort": portHttp,
         "p2pPort": portP2P,
+        "p2pKeepAlive": 100,
         "hostname": "localhost",
         "isTest": true,
         "p2pseed": seed.map(port => {return {"server": "localhost", "port" : port}})
@@ -228,6 +229,9 @@ const addr = (p: Peer) => {
 await waitFor(peers.map(p => 'http-get://localhost:' + p.port + '/id'))
 
 console.log("=========TESTING==========")
+
+const atLeastOne = false
+
 console.log("Protocol...\n")
 var okay = false
 
@@ -261,7 +265,7 @@ while (!okay) {
             assert.deepStrictEqual(r, [oracle1.body])
 
             semaphore++
-            if (true || semaphore === results.length) {
+            if (atLeastOne || semaphore === results.length) {
                 okay = true
             }
         })
@@ -303,7 +307,7 @@ while (!okay) {
         results2.forEach(r => {
             assert.deepStrictEqual(r, [cp1])
             semaphore++
-            if (true || semaphore === results2.length) {
+            if (atLeastOne || semaphore === results2.length) {
                 okay = true
             }
         })
@@ -341,7 +345,7 @@ while (!okay) {
         results3.forEach(r => {
             assert.deepStrictEqual(r, [r1])
             semaphore++
-            if (true || semaphore === results3.length) {
+            if (atLeastOne || semaphore === results3.length) {
                 okay = true
             }
         })
@@ -383,7 +387,7 @@ while (!okay) {
         results4.forEach(r => {
             assert.deepStrictEqual(r, [o1])
             semaphore++
-            if (true || semaphore === results4.length) {
+            if (atLeastOne || semaphore === results4.length) {
                 okay = true
             }
         })
