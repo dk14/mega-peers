@@ -74,12 +74,12 @@ const start = async (portP2P: number, portHttp: number, seed: number[], oraclePo
 
     if (traderPort !== undefined) {
         cfg["trader"] = {
-            "broadcastOfferCycle": 3000,
-            "broadcastReportCycle": 3000,
-            "collectOffersCycle": 2000,
-            "collectReportsCycle": 2000,
-            "collectOracleAdsCycle": 2000,
-            "collectOracleCpCycle": 2000,
+            "broadcastOfferCycle": 100,
+            "broadcastReportCycle": 100,
+            "collectOffersCycle": 100,
+            "collectReportsCycle": 100,
+            "collectOracleAdsCycle": 100,
+            "collectOracleCpCycle": 100,
             "pageSize": 100,
             "maxOraclesPages": 2,
             "maxCpPages": 2,
