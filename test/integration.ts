@@ -228,9 +228,15 @@ const addr = (p: Peer) => {
 }
 await waitFor(peers.map(p => 'http-get://localhost:' + p.port + '/id'))
 
+ 
+
 console.log("=========TESTING==========")
 
 const atLeastOne = false
+const reCheckInterval = 1000
+
+//todo check node dicovery reports instead - to ensure all nodes discovered one another
+await new Promise(resolve => setTimeout(() => {resolve(null);}, reCheckInterval))
 
 console.log("Protocol...\n")
 var okay = false
@@ -272,7 +278,7 @@ while (!okay) {
     } catch {
         
     }
-    await new Promise(resolve => setTimeout(() => {resolve(null);}, 100))
+    await new Promise(resolve => setTimeout(() => {resolve(null);}, reCheckInterval))
 
     
     console.log("    synced " + semaphore + "/" + results.length)
@@ -314,7 +320,7 @@ while (!okay) {
     } catch {
 
     }
-    await new Promise(resolve => setTimeout(() => {resolve(null);}, 100))
+    await new Promise(resolve => setTimeout(() => {resolve(null);}, reCheckInterval))
 
     console.log("    synced " + semaphore + "/" + results2.length)
 }
@@ -353,7 +359,7 @@ while (!okay) {
 
     }
 
-    await new Promise(resolve => setTimeout(() => {resolve(null);}, 100))
+    await new Promise(resolve => setTimeout(() => {resolve(null);}, reCheckInterval))
 
     console.log("    synced " + semaphore + "/" + results3.length)
     
@@ -395,7 +401,7 @@ while (!okay) {
 
     }
 
-     await new Promise(resolve => setTimeout(() => {resolve(null);}, 100))
+     await new Promise(resolve => setTimeout(() => {resolve(null);}, reCheckInterval))
 
     console.log("    synced " + semaphore + "/" + results4.length)
     
