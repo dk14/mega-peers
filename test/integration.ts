@@ -233,7 +233,7 @@ await waitFor(peers.map(p => 'http-get://localhost:' + p.port + '/id'))
 console.log("=========TESTING==========")
 
 const atLeastOne = false
-const reCheckInterval = 1000
+const reCheckInterval = 200
 
 await new Promise(resolve => setTimeout(() => {resolve(null);}, reCheckInterval))
 
