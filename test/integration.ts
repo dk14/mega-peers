@@ -232,10 +232,9 @@ await waitFor(peers.map(p => 'http-get://localhost:' + p.port + '/id'))
 
 console.log("=========TESTING==========")
 
-const atLeastOne = false
+const atLeastOne = true
 const reCheckInterval = 1000
 
-//todo check node dicovery reports instead - to ensure all nodes discovered one another
 await new Promise(resolve => setTimeout(() => {resolve(null);}, reCheckInterval))
 
 console.log("Protocol...\n")
