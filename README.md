@@ -55,4 +55,9 @@ mtkndr@proton.me
 
 BTC: bc1qekvmkczge3hxrvwdf2lj3yyvgjnparn3fdf9lg
 
+![bc1qekvmkczge3hxrvwdf2lj3yyvgjnparn3fdf9lg](docs/donations.png)
+
+(don't lose your wallet - you might get rewards from [another btc project](https://github.com/dk14/crypto/edit/main/chats/btc-audit/README.md) one day)
+
 Credentials: [my youtube with IOHK](https://www.youtube.com/watch?v=RhXlOdNyGn8), [paper](https://www.researchgate.net/publication/354641980_Standardized_Crypto-Loans_on_the_Cardano_Blockchain), [actus standard](https://www.actusfrf.org/post/marlowe-and-actus), [research with wolfram](https://github.com/dk14/wolfram-oracle-research)
+
