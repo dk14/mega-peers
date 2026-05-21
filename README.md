@@ -1,5 +1,4 @@
-(this project did NOT use Ai - I literally wrote it by hand)
-
+(this project did NOT use Ai - I literally wrote it by hand, the project contains novel research, and high-quality test coverage)
 A p2p fact sharing network
 
 # Mega Peers
