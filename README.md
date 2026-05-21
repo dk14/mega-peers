@@ -1,3 +1,5 @@
+(this project did NOT use Ai - I literally wrote it by hand)
+
 A p2p fact sharing network
 
 # Mega Peers
