@@ -64,7 +64,7 @@
   "author": "dk14",
   "license": "ISC",
   "devDependencies": {
-    "@istanbuljs/nyc-config-typescript": "^1.0.2",
+    "@istanbuljs/nyc-config-typescript": "^1.0.0",
     "@types/js-yaml": "^4.0.9",
     "@types/jsdom": "^21.1.7",
     "esbuild": "0.25.5",
@@ -80,7 +80,7 @@
   },
   "dependencies": {
     "@hyperionbt/helios": "^0.16.7",
-    "@nyariv/sandboxjs": "^0.8.24",
+    "@nyariv/sandboxjs": "^0.9.6",
     "@roamhq/wrtc": "^0.9.0",
     "@types/node": "^22.13.9",
     "@types/ws": "^8.18.0",
