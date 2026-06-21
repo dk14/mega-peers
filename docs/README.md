@@ -4,6 +4,9 @@ A p2p fact sharing network
 
 Mega *(from מַגָע, contact)* - is a lightweight infinitely scalable decentralized data marketplace, bringing authentic observers to blockchain.
 
+Part of the Doomsday Ecosystem:
+ https://doomsdayexplorer.online/
+
 ## Design
 
 Mega acts as a p2p oracle advertisement network.
