@@ -1,6 +1,6 @@
 > (this project did NOT use Ai - I literally wrote it by hand, the project contains novel research, and high-quality test coverage)
 > 
-> It contains MVP-level (minimal viable product) results of research done into classic finance, digital identity (Sybil-attacks resistance), observation (oracles) and its relation to game theory (there is a p2p betting app testnet mvp for bticoin)
+> It contains MVP-level (minimal viable product) results of research done into classic finance, digital identity (Sybil-attacks resistance), observation (oracles) and its relation to game theory (there is a p2p betting app testnet mvp for bticoin). It was initially meant for Wolfram Alpha as a fact source, but grew into supporting individually operated oracles.
 
 A p2p fact sharing network
 
