@@ -1,12 +1,17 @@
 <html>
     <head>
+        <title>Mg-Peers node Monitor</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui.css" />
     </head>
     
     <body bgcolor="grey">
-        <h1>Wofram Mega Node Monitor:</h1>
+
+        
+
+        <h1>Node Monitor:</h1>
+        <a href="./docs/front.html">Docs</a>
         <hr>
 
         Peers: <div id="peers"></div>
@@ -80,6 +85,13 @@
     </body>
 
     <script>
+
+        if (window.location.hostname === "mg-peers.doomsdayexplorer.online") {
+            setTimeout(() => {
+                window.location.replace("https://mg-peers.doomsdayexplorer.online/docs/front")
+            }, 500)
+        }
+
         window.getSHA256Hash = async (input) => {
             const textAsBuffer = new TextEncoder().encode(input);
             const hashBuffer = await window.crypto.subtle.digest("SHA-256", textAsBuffer);
