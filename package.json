@@ -22,7 +22,9 @@
     "webtest-it-composite": "npx tsx test/webtest-integration.ts notrace composite",
     "webrtc-bridge": "npx tsx test/util/webrtc-bridge.ts",
     "webtest-dsl": "npx tsx src-web/dsl.ts",
-    "build": "cp ./mega-peers-spec.yaml dist/mega-peers-spec.yaml && tsc --build && npx tsx esbuild.ts"
+    "build": "cp ./mega-peers-spec.yaml dist/mega-peers-spec.yaml && tsc --build && npx tsx esbuild.ts",
+    "deploy": "wrangler deploy",
+    "preview": "wrangler dev"
   },
   "browser": {
     "openapi-enforcer": false,
@@ -76,7 +78,8 @@
     "source-map-support": "^0.5.21",
     "ts-node": "^10.9.2",
     "tsx": "^4.19.3",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "wrangler": "^4.112.0"
   },
   "dependencies": {
     "@hyperionbt/helios": "^0.16.7",
